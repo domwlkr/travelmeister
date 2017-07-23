@@ -4,6 +4,7 @@ import {
   Route,
 } from 'react-router-dom';
 import Home from './containers/Home';
+import Service from './containers/Service';
 import './App.css';
 
 const App = () => (
@@ -14,6 +15,7 @@ const App = () => (
             </div>
 
             <Route exact path="/" component={Home} />
+            <Route path="/service/:id" component={Service} />
         </div>
     </Router>
 );

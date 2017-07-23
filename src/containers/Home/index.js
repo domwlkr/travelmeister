@@ -40,12 +40,7 @@ Home.propTypes = {
     services: PropTypes.array.isRequired,
 };
 
-const mapStateToProps = (state) => {
-    return {
-        services: state.servicesReducer.services,
-        disruptions: state.disruptionsReducer.disruptions,
-    };
-};
+const mapStateToProps = state => ({ services: state.servicesReducer.services });
 
 const mapDispatchToProps = dispatch => ({
     getDisruptions: (mode) => {

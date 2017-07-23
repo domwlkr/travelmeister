@@ -1,0 +1,30 @@
+.status-box {
+    padding: 20px 0;
+}
+
+.status-box span {
+    display: none;
+}
+
+.status-box.loading span {
+    display: block;
+}
+
+.statuses {
+    border: 1px solid black;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.statuses h2 {
+    text-transform: capitalize;
+}
+
+.status {
+    padding: 30px;
+    border-bottom: 1px solid black;
+}
+
+.status:last-of-type {
+    border-bottom: 0;
+}

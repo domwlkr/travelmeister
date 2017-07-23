@@ -3,6 +3,7 @@ import types from '../constants/';
 const initialState = {
     disruptions: [],
     loading: false,
+    error: '',
 };
 
 const disruptionsReducer = (state = initialState, action) => {
@@ -12,16 +13,21 @@ const disruptionsReducer = (state = initialState, action) => {
             ...state,
             loading: true,
         };
-    case types.GET_DISRUPTIONS_SUCCESS:
+
+    case types.SET_DISRUPTIONS:
         return {
             ...state,
             disruptions: [
                 ...state.disruptions,
-                {
-                    id: action.mode,
-                    status: action.payload,
-                },
+                action.status,
             ],
+            loading: false,
+        };
+
+    case types.DISRUPTIONS_ERROR:
+        return {
+            ...state,
+            error: action.error,
             loading: false,
         };
 

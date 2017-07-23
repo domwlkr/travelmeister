@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import './icon-link.css';
 
 const IconLink = ({ text, iconClass }) => (
-    <Link to={`/${text}`} className="icon-link">
+    <Link to={`/service/${text}`} className="icon-link">
         {text}<i className={iconClass ? 'warning' : ''} />
     </Link>
 );

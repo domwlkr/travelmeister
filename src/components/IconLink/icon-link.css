@@ -9,3 +9,19 @@
     text-transform: uppercase;
     width: 200px;
 }
+
+.warning {
+    border: 2px solid white;
+    border-radius: 50%;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    margin-left: 10px;
+    font-style: normal;
+}
+
+.warning:before {
+    content: '!';
+}

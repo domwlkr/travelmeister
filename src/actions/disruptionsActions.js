@@ -11,6 +11,20 @@ const disruptionsActions = {
             payload: request,
         };
     },
+
+    setDisruptions(status) {
+        return {
+            type: types.SET_DISRUPTIONS,
+            status,
+        };
+    },
+
+    disruptionsError(error) {
+        return {
+            type: types.DISRUPTIONS_ERROR,
+            error,
+        };
+    },
 };
 
 export default disruptionsActions;
