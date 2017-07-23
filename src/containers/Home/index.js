@@ -1,6 +1,6 @@
 import React from 'react';
 import List from '../../components/List';
-import IconButton from '../../components/IconButton';
+import IconLink from '../../components/IconLink';
 import GeoLocator from '../../components/GeoLocator';
 
 const Home = () => (
@@ -8,9 +8,9 @@ const Home = () => (
         <GeoLocator />
 
         <List>
-            <IconButton text="Underground" link="" />
-            <IconButton text="Overground" link="" />
-            <IconButton text="DLR" link="" />
+            <IconLink text="Underground" link="/underground" />
+            <IconLink text="Overground" link="/overground" />
+            <IconLink text="DLR" link="/dlr" />
         </List>
     </div>
 );

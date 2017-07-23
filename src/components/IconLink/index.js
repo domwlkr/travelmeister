@@ -1,17 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './icon-button.css';
+import { Link } from 'react-router-dom';
+import './icon-link.css';
 
-const IconButton = ({ link, text, iconClass }) => (
-    <a href={link} className="icon-button">
+const IconLink = ({ link, text, iconClass }) => (
+    <Link to={link} className="icon-link">
         {text}<i className={iconClass} />
-    </a>
+    </Link>
 );
 
-IconButton.propTypes = {
+IconLink.propTypes = {
     link: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,
     iconClass: PropTypes.string.isRequired,
 };
 
-export default IconButton;
+export default IconLink;
