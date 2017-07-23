@@ -3,16 +3,15 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import './icon-link.css';
 
-const IconLink = ({ link, text, iconClass }) => (
-    <Link to={link} className="icon-link">
-        {text}<i className={iconClass} />
+const IconLink = ({ text, iconClass }) => (
+    <Link to={`/${text}`} className="icon-link">
+        {text}<i className={iconClass ? 'warning' : ''} />
     </Link>
 );
 
 IconLink.propTypes = {
-    link: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,
-    iconClass: PropTypes.string.isRequired,
+    iconClass: PropTypes.bool.isRequired,
 };
 
 export default IconLink;
