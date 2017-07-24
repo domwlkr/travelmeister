@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
 import disruptionsReducer from './disruptions';
 import servicesReducer from './services';
-import positionReducer from './position';
+import locationReducer from './location';
 
 const rootReducer = combineReducers({
-  disruptionsReducer,
-  servicesReducer,
-  positionReducer,
+    disruptionsReducer,
+    servicesReducer,
+    locationReducer,
 });
 
 export default rootReducer;

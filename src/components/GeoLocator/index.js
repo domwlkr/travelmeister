@@ -1,30 +1,35 @@
 import React from 'react';
-import { geolocated, geoPropTypes } from 'react-geolocated';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import locationActions from '../../actions/locationActions';
 import './geolocator.css';
 
-class GeoLocator extends React.Component {
+class Location extends React.Component {
+    componentWillMount() {
+        this.props.getLocation();
+    }
+
     render() {
-        return !this.props.isGeolocationAvailable
-          ? <div className="geolocator">Your browser does not support Geolocation</div>
-          : !this.props.isGeolocationEnabled
-            ? <div className="geolocator">Geolocation is not enabled</div>
-            : this.props.coords
-              ? <div className="geolocator">
-                  <span>Current location:</span>
-                  <div className="geolocator__location">
-                      <div>latitude: {this.props.coords.latitude}</div>
-                      <div>longitude: {this.props.coords.longitude}</div>
-                  </div>
-              </div>
-              : <div className="geolocator">Getting your location data&hellip; </div>;
+        return (
+            <div className="geolocator">
+                <div>Latitude: <span>{this.props.location.coords.latitude}</span></div>
+                <div>Longitude: <span>{this.props.location.coords.longitude}</span></div>
+            </div>
+        );
     }
 }
 
-GeoLocator.propTypes = Object.assign({}, GeoLocator.propTypes, geoPropTypes);
+Location.propTypes = {
+    location: PropTypes.object.isRequired,
+    getLocation: PropTypes.func.isRequired,
+};
 
-export default geolocated({
-    positionOptions: {
-        enableHighAccuracy: false,
+const mapStateToProps = state => ({ location: state.locationReducer });
+
+const mapDispatchToProps = dispatch => ({
+    getLocation: () => {
+        dispatch(locationActions.getLocation());
     },
-    userDecisionTimeout: 5000,
-})(GeoLocator);
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Location);

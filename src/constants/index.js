@@ -5,7 +5,7 @@ const types = {
 
     SET_SERVICE_STATUS: 'SET_SERVICE_STATUS',
 
-    UPDATE_LAT_LONG: 'UPDATE_LAT_LONG',
+    GET_LOCATION: 'GET_LOCATION',
 };
 
 export default types;
