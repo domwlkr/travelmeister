@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import './status-box.css';
 
 const StatusBox = ({ disruptions, loading, mode }) => {
-    const statuses = disruptions.map(disruption => (
-        <div className="status">{disruption[0].description}</div>
+    const statuses = disruptions.map((disruption, i) => (
+        <div className="status">{disruption[i].description}</div>
     ));
 
     return (
