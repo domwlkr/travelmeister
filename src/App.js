@@ -24,10 +24,6 @@ class App extends React.Component {
         return (
             <Router>
                 <div className="App">
-                    <div className="App-header">
-                        <h2>Travelmeister</h2>
-                    </div>
-
                     <Route exact path="/" component={Home} />
                     <Route path="/service/:id" component={Service} />
                 </div>

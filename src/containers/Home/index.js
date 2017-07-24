@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import Layout from '../../components/Layout';
 import List from '../../components/List';
 import IconLink from '../../components/IconLink';
 import GeoLocator from '../../components/GeoLocator';
@@ -15,13 +16,13 @@ const Home = ({ services }) => {
     ));
 
     return (
-        <div className="main">
+        <Layout routeClass="home">
             <GeoLocator />
 
             <List>
                 {links}
             </List>
-        </div>
+        </Layout>
     );
 };
 

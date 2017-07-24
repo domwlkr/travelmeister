@@ -1,3 +1,11 @@
 .stations {
     margin-top: 20px;
 }
+
+.stations span {
+    display: none;
+}
+
+.stations.loading span {
+    display: block;
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import Layout from '../../components/Layout';
 import StatusBox from '../../components/StatusBox';
 import Stations from '../../components/Stations';
 import {
@@ -35,7 +36,7 @@ class Service extends React.Component {
 
     render() {
         return (
-            <div className="main">
+            <Layout className="service">
                 <StatusBox
                   disruptions={this.props.disruptions}
                   loading={this.props.loadingDisruptions}
@@ -46,7 +47,7 @@ class Service extends React.Component {
                   loading={this.props.loadingStations}
                   mode={this.props.match.params.id}
                 />
-            </div>
+            </Layout>
         );
     }
 }
