@@ -1,0 +1,11 @@
+.back-button {
+    border: 1px solid white;
+    border-radius: 3px;
+    color: white;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 8px 25px;
+    text-decoration: none;
+}
