@@ -14,7 +14,7 @@ const disruptionsReducer = (state = initialState, action) => {
             loading: true,
         };
 
-    case types.SET_DISRUPTIONS:
+    case types.GET_DISRUPTIONS_SUCCESS:
         return {
             ...state,
             disruptions: [
@@ -23,11 +23,18 @@ const disruptionsReducer = (state = initialState, action) => {
             loading: false,
         };
 
-    case types.DISRUPTIONS_ERROR:
+    case types.GET_DISRUPTIONS_FAILURE:
         return {
             ...state,
             error: action.error,
             loading: false,
+        };
+
+    case types.CLEAR_DISRUPTIONS:
+        return {
+            ...state,
+            disruptions: state.disruptions
+                .slice(0, 0),
         };
 
     default:

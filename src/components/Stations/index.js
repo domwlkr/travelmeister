@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Station from './Station';
+import './stations.css';
 
 const Stations = ({ stations, loading, mode }) => {
     const stationItems = stations.map(station => (
@@ -8,10 +9,10 @@ const Stations = ({ stations, loading, mode }) => {
     ));
 
     return (
-        <div className={`status-box ${loading ? 'loading' : ''}`}>
+        <div className={`stations ${loading ? 'loading' : ''}`}>
             <span className="message">Getting {mode} status...</span>
             <div className="stations">
-                <h2>Nearby Stations</h2>
+                <h3>Nearby Stations</h3>
                 {stationItems}
             </div>
         </div>

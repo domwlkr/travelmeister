@@ -7,17 +7,30 @@ import {
     getDisruptions,
     getDisruptionsSuccess,
     getDisruptionsFailure,
+    clearDisruptions,
 } from '../../actions/disruptionsActions';
 import {
     getStations,
     getStationsSuccess,
     getStationsFailure,
+    clearStations,
 } from '../../actions/stationsActions';
 
 class Service extends React.Component {
     componentWillMount() {
         this.props.getDisruptions(this.props.match.params.id);
         this.props.getStations(this.props.match.params.id, this.props.location.coords.latitude, this.props.location.coords.longitude);
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.location.coords.longitude !== this.props.location.coords.longitude) {
+            this.props.getStations(this.props.match.params.id, this.props.location.coords.latitude, this.props.location.coords.longitude);
+        }
+    }
+
+    componentWillUnmount() {
+        this.props.clearStations();
+        this.props.clearDisruptions();
     }
 
     render() {
@@ -76,13 +89,17 @@ const mapDispatchToProps = dispatch => ({
         });
     },
 
+    clearDisruptions: () => {
+        dispatch(clearDisruptions());
+    },
+
     getStations: (mode, lat, lon) => {
         dispatch(getStations(mode, lat, lon)).then((response) => {
             let data;
 
             if (response.error) {
                 data = 'Netwrok error';
-                dispatch(getStationsSuccess(data));
+                dispatch(getStationsFailure(data));
                 return;
             } else if (response.payload.data.stopPoints.length > 0) {
                 data = response.payload.data.stopPoints;
@@ -90,8 +107,12 @@ const mapDispatchToProps = dispatch => ({
                 data = [{ commonName: 'There are no stations within 800m' }];
             }
 
-            dispatch(getStationsFailure(data));
+            dispatch(getStationsSuccess(data));
         });
+    },
+
+    clearStations: () => {
+        dispatch(clearStations());
     },
 });
 

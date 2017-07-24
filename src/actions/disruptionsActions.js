@@ -24,3 +24,9 @@ export function getDisruptionsFailure(error) {
         error,
     };
 }
+
+export function clearDisruptions() {
+    return {
+        type: types.CLEAR_DISRUPTIONS,
+    };
+}

@@ -8,7 +8,7 @@ const Station = ({ station }) => {
         stationsLines = '';
     } else {
         stationsLines = station.modes.map((mode, i) => {
-            const lines = station.lineModeGroups[i].lineIdentifier.map(line => <li key={i}>{line}</li>);
+            const lines = station.lineModeGroups[i].lineIdentifier.map(line => <li key={line}>{line}</li>);
 
             return (
                 <div key={i} className="station-lines">

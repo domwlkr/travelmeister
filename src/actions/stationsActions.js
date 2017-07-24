@@ -24,3 +24,9 @@ export function getStationsFailure(error) {
         error,
     };
 }
+
+export function clearStations() {
+    return {
+        type: types.CLEAR_STATIONS,
+    };
+}
