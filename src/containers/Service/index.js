@@ -38,7 +38,17 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => ({
     getDisruptions: (mode) => {
         dispatch(disruptionsActions.getDisruptions(mode)).then((response) => {
-            let data = response.payload.data;
+            let data;
+
+            if (response.error) {
+                data = 'Netwrok error';
+                dispatch(disruptionsActions.disruptionsError(data));
+                return;
+            } else if (response.payload.data.length > 0) {
+                data = response.payload.data;
+            } else {
+                data = [{description: 'There are no service disruptions at this time'}];
+            }
 
             dispatch(disruptionsActions.setDisruptions(data));
         });

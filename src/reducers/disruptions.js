@@ -18,7 +18,6 @@ const disruptionsReducer = (state = initialState, action) => {
         return {
             ...state,
             disruptions: [
-                ...state.disruptions,
                 action.status,
             ],
             loading: false,
