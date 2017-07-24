@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import locationActions from '../../actions/locationActions';
+import { getLocation } from '../../actions/locationActions';
 import './geolocator.css';
 
 class Location extends React.Component {
@@ -28,7 +28,7 @@ const mapStateToProps = state => ({ location: state.locationReducer });
 
 const mapDispatchToProps = dispatch => ({
     getLocation: () => {
-        dispatch(locationActions.getLocation());
+        dispatch(getLocation());
     },
 });
 

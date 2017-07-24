@@ -8,10 +8,10 @@ const Station = ({ station }) => {
         stationsLines = '';
     } else {
         stationsLines = station.modes.map((mode, i) => {
-            const lines = station.lineModeGroups[i].lineIdentifier.map(line => <li>{line}</li>);
+            const lines = station.lineModeGroups[i].lineIdentifier.map(line => <li key={i}>{line}</li>);
 
             return (
-                <div classNames="station-lines">
+                <div key={i} className="station-lines">
                     <h3>{mode}</h3>
                     <ul>
                         {lines}

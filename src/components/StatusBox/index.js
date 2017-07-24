@@ -4,7 +4,7 @@ import './status-box.css';
 
 const StatusBox = ({ disruptions, loading, mode }) => {
     const statuses = disruptions.map((disruption, i) => (
-        <div className="status">{disruption[i].description}</div>
+        <div className="status" key={i}>{disruption[i].description}</div>
     ));
 
     return (

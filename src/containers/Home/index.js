@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import List from '../../components/List';
 import IconLink from '../../components/IconLink';
 import GeoLocator from '../../components/GeoLocator';
-import disruptionsActions from '../../actions/disruptionsActions';
-import servicesActions from '../../actions/servicesActions';
+import { getDisruptions } from '../../actions/disruptionsActions';
+import { setServiceStatus } from '../../actions/servicesActions';
 
 class Home extends React.Component {
     componentWillMount() {
@@ -45,9 +45,9 @@ const mapStateToProps = state => ({ services: state.servicesReducer.services });
 const mapDispatchToProps = dispatch => ({
     getDisruptions: (mode) => {
         if (mode) {
-            dispatch(disruptionsActions.getDisruptions(mode)).then((response) => {
+            dispatch(getDisruptions(mode)).then((response) => {
                 if (response.payload.data.length > 0) {
-                    dispatch(servicesActions.setServiceStatus(mode, true));
+                    dispatch(setServiceStatus(mode, true));
                 }
             });
         }

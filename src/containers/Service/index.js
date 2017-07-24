@@ -3,8 +3,16 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import StatusBox from '../../components/StatusBox';
 import Stations from '../../components/Stations';
-import disruptionsActions from '../../actions/disruptionsActions';
-import stationsActions from '../../actions/stationsActions';
+import {
+    getDisruptions,
+    getDisruptionsSuccess,
+    getDisruptionsFailure,
+} from '../../actions/disruptionsActions';
+import {
+    getStations,
+    getStationsSuccess,
+    getStationsFailure,
+} from '../../actions/stationsActions';
 
 class Service extends React.Component {
     componentWillMount() {
@@ -51,12 +59,12 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     getDisruptions: (mode) => {
-        dispatch(disruptionsActions.getDisruptions(mode)).then((response) => {
+        dispatch(getDisruptions(mode)).then((response) => {
             let data;
 
             if (response.error) {
                 data = 'Netwrok error';
-                dispatch(disruptionsActions.disruptionsError(data));
+                dispatch(getDisruptionsFailure(data));
                 return;
             } else if (response.payload.data.length > 0) {
                 data = response.payload.data;
@@ -64,17 +72,17 @@ const mapDispatchToProps = dispatch => ({
                 data = [{ description: 'There are no service disruptions at this time' }];
             }
 
-            dispatch(disruptionsActions.setDisruptions(data));
+            dispatch(getDisruptionsSuccess(data));
         });
     },
 
     getStations: (mode, lat, lon) => {
-        dispatch(stationsActions.getStations(mode, lat, lon)).then((response) => {
+        dispatch(getStations(mode, lat, lon)).then((response) => {
             let data;
 
             if (response.error) {
                 data = 'Netwrok error';
-                dispatch(stationsActions.stationsError(data));
+                dispatch(getStationsSuccess(data));
                 return;
             } else if (response.payload.data.stopPoints.length > 0) {
                 data = response.payload.data.stopPoints;
@@ -82,7 +90,7 @@ const mapDispatchToProps = dispatch => ({
                 data = [{ commonName: 'There are no stations within 800m' }];
             }
 
-            dispatch(stationsActions.setStations(data));
+            dispatch(getStationsFailure(data));
         });
     },
 });

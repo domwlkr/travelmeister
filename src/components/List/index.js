@@ -2,8 +2,8 @@ import React from 'react';
 import './list.css';
 
 const List = ({ children }) => {
-    const buttons = children.map(child => (
-        <li>
+    const buttons = children.map((child, i) => (
+        <li key={i}>
             {child}
         </li>
     ));
