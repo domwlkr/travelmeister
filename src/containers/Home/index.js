@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Layout from '../../components/Layout';
 import List from '../../components/List';
@@ -19,9 +20,13 @@ const Home = ({ services }) => {
         <Layout routeClass="home">
             <GeoLocator />
 
+            <h3>Check travel services</h3>
             <List>
                 {links}
             </List>
+
+            <h3>Search for bike locations</h3>
+            <Link to="/cycle-search" className="icon-link">Cycle search</Link>
         </Layout>
     );
 };

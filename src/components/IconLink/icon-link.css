@@ -1,17 +1,22 @@
 .icon-link {
-    background-color: #222;
+    background-color: #dff0d8;
     display: inline-block;
     padding: 15px 40px;
     margin-bottom: 5px;
     border-radius: 3px;
-    color: white;
+    color: #3c763d;
     text-decoration: none;
     text-transform: uppercase;
-    width: 200px;
+    width: 240px;
 }
 
-.warning {
-    border: 2px solid white;
+.icon-link.warning {
+    background-color: #f2dede;
+    color: #a94442;
+}
+
+.warning i {
+    border: 2px solid #a94442;
     border-radius: 50%;
     display: inline-block;
     width: 20px;
@@ -22,6 +27,6 @@
     font-style: normal;
 }
 
-.warning:before {
+.warning i:before {
     content: '!';
 }

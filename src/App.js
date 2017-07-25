@@ -7,6 +7,7 @@ import {
 import { connect } from 'react-redux';
 import Home from './containers/Home';
 import Service from './containers/Service';
+import CycleSearch from './containers/CycleSearch';
 import { getLocation } from './actions/locationActions';
 import { getDisruptions } from './actions/disruptionsActions';
 import { setServiceStatus } from './actions/servicesActions';
@@ -26,6 +27,7 @@ class App extends React.Component {
                 <div className="App">
                     <Route exact path="/" component={Home} />
                     <Route path="/service/:id" component={Service} />
+                    <Route path="/cycle-search" component={CycleSearch} />
                 </div>
             </Router>
         );

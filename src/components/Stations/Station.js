@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './station.css';
 
 const Station = ({ station }) => {
     let stationsLines;
@@ -27,6 +28,7 @@ const Station = ({ station }) => {
                 {station.commonName}
             </div>
             <div className="station-content">
+                <p>All services at station</p>
                 {stationsLines}
             </div>
         </div>

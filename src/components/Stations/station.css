@@ -1,0 +1,37 @@
+.station {
+    border: 1px solid grey;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.station-header {
+    background-color: #222;
+    color: white;
+    padding: 20px;
+}
+
+.station-content {
+    padding: 20px;
+}
+
+.station-content h3 {
+    text-transform: capitalize;
+}
+
+.station-content ul {
+    padding-left: 20px;
+    text-transform: capitalize;
+    list-style: none;
+}
+
+.station-content li {
+    display: inline;
+}
+
+.station-content li:after {
+    content: ', ';
+}
+
+.station-content li:last-of-type:after {
+    content: '';
+}

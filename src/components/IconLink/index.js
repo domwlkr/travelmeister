@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import './icon-link.css';
 
 const IconLink = ({ text, iconClass }) => (
-    <Link to={`/service/${text}`} className="icon-link">
-        {text}<i className={iconClass ? 'warning' : ''} />
+    <Link to={`/service/${text}`} className={`icon-link ${(iconClass ? 'warning' : '')}`}>
+        {text}<i />
     </Link>
 );
 
