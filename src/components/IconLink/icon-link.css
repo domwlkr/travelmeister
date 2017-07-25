@@ -15,6 +15,11 @@
     color: #a94442;
 }
 
+.icon-link.info {
+    background-color: #d9edf7;
+    color: #31708f;
+}
+
 .warning i {
     border: 2px solid #a94442;
     border-radius: 50%;

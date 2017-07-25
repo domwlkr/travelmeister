@@ -20,13 +20,13 @@ const Home = ({ services }) => {
         <Layout routeClass="home">
             <GeoLocator />
 
-            <h3>Check travel services</h3>
+            <h3>Check nearby TFL services</h3>
             <List>
                 {links}
             </List>
 
-            <h3>Search for bike locations</h3>
-            <Link to="/cycle-search" className="icon-link">Cycle search</Link>
+            <h3>Search for Boris bike locations</h3>
+            <Link to="/cycle-search" className="icon-link info">Cycle search</Link>
         </Layout>
     );
 };

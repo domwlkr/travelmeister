@@ -41,6 +41,7 @@ class Service extends React.Component {
                   disruptions={this.props.disruptions}
                   loading={this.props.loadingDisruptions}
                   mode={this.props.match.params.id}
+                  services={this.props.services}
                 />
                 <Stations
                   stations={this.props.stations}
@@ -61,6 +62,7 @@ Service.propTypes = {
     loadingStations: PropTypes.bool.isRequired,
     location: PropTypes.object.isRequired,
     match: PropTypes.object.isRequired,
+    services: PropTypes.array.isRequired,
 };
 
 const mapStateToProps = state => ({
@@ -69,6 +71,7 @@ const mapStateToProps = state => ({
     location: state.locationReducer,
     loadingDisruptions: state.disruptionsReducer.loading,
     loadingStations: state.stationsReducer.loading,
+    services: state.servicesReducer.services,
 });
 
 const mapDispatchToProps = dispatch => ({
